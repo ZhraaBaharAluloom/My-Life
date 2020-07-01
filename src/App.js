@@ -1,24 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import  { ThemeProvider } from "styled-components";
+import {
+  Title,
+  LifeImage,
+  GlobalStyle,
+} from "./styles";
+import EventList from "./components/EventList";
 
+const theme = {
+  backgroundColor: "#f5f5f5",
+  mainColor: "#07031a",
+  purple: "#584153",
+};
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <ThemeProvider theme={theme}>
+        <GlobalStyle />
+        <Title>Welcome to Zahraa's Life</Title>
+        <LifeImage
+          src="https://cdn.nohat.cc/thumb/f/720/fa02ee572cb548d287a2.jpg"
+          alt=""
+        />
+        <div>
+          <EventList />
+        </div>
+      </ThemeProvider>
     </div>
   );
 }
